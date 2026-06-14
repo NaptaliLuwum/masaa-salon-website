@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز ماسا إم إتش للتزيين النسائي | Masaa MH Beauty Salon</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #b76e79; /* Rose Gold */
+            --secondary: #d4af37; /* Gold */
+            --bg-cream: #fffdf5;
+            --bg-soft-rose: #fdf2f4;
+            --text-dark: #2c3e50;
+            --text-muted: #7f8c8d;
+            --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        [lang="en"] body {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- UI Components --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            gap: 10px;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: #f0f0f0;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* --- About --- */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 20px 20px 0 var(--bg-soft-rose);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* --- Services --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--primary);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Offers --- */
+        .offers {
+            background: var(--bg-soft-rose);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .offer-content {
+            padding: 30px;
+        }
+
+        .offer-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        /* --- Video Showcase --- */
+        .video-showcase {
+            background: #000;
+            color: white;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .video-item {
+            aspect-ratio: 9/16;
+            background: #222;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .video-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* --- Why Us --- */
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .why-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* --- Contact --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-method i {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-soft-rose);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 60px 0; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1.1rem; }
+        }
+
+        /* RTL/LTR Logic */
+        [dir="rtl"] .hero-btns { flex-direction: row; }
+        [dir="ltr"] .hero-btns { flex-direction: row; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo" id="nav-logo">مركز ماسا إم إتش</a>
+            <ul class="nav-links">
+                <li><a href="#home" id="link-home">الرئيسية</a></li>
+                <li><a href="#about" id="link-about">من نحن</a></li>
+                <li><a href="#services" id="link-services">خدماتنا</a></li>
+                <li><a href="#offers" id="link-offers">العروض</a></li>
+                <li><a href="#videos" id="link-videos">الفيديوهات</a></li>
+                <li><a href="#contact" id="link-contact">اتصلي بنا</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('ar')">🇸🇦 العربية</button>
+                <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 English</button>
+            </div>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="hero-title">مركز ماسا إم إتش للتزيين النسائي</h1>
+                <p id="hero-subtitle">تجربة الرفاهية والجمال التي تستحقينها في قلب الدمام</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/966559394997" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> <span id="btn-wa">احجزي عبر واتساب</span></a>
+                    <a href="tel:0559394997" class="btn btn-primary"><i class="fas fa-phone"></i> <span id="btn-call">اتصلي الآن</span></a>
+                    <a href="#offers" class="btn btn-outline"><span id="btn-offers">شاهدي العروض</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="about">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=800&q=80" alt="Masaa Salon">
+                </div>
+                <div class="about-text">
+                    <h2 id="about-title">عن مركز ماسا</h2>
+                    <p id="about-p1">نحن في مركز ماسا إم إتش نقدم لكِ تجربة جمال فاخرة ومتكاملة. فريقنا من الخبيرات المحترفات ملتزم بتقديم أرقى الخدمات باستخدام أحدث التقنيات وأفضل المنتجات العالمية.</p>
+                    <p id="about-p2">سواء كنتِ تبحثين عن إطلالة يومية متألقة أو تجهيزات لعروس، نحن هنا لنجعل جمالكِ يشرق.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="#services" class="btn btn-primary" id="about-btn">اكتشفي خدماتنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="services" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="services-header">خدماتنا المتميزة</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-cut"></i>
+                    <h3 id="s-hair">تصفيف الشعر</h3>
+                    <p id="s-hair-p">قص، تسريح، وأحدث صيحات الموضة</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tint"></i>
+                    <h3 id="s-color">صبغ الشعر</h3>
+                    <p id="s-color-p">ألوان جذابة وتقنيات بالياج احترافية</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-magic"></i>
+                    <h3 id="s-makeup">المكياج</h3>
+                    <p id="s-makeup-p">مكياج سهرة وعرائس بأيدي خبيرات</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3 id="s-nails">العناية بالأظافر</h3>
+                    <p id="s-nails-p">مناكير، بديكير، وتزيين الأظافر</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-spa"></i>
+                    <h3 id="s-treat">علاجات الشعر</h3>
+                    <p id="s-treat-p">بروتين، كولاجين، وترميم الشعر</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-gem"></i>
+                    <h3 id="s-bridal">باقات العرائس</h3>
+                    <p id="s-bridal-p">عناية متكاملة لليلة العمر</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="section-padding offers" id="offers">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="offers-header">عروض حصرية</h2>
+            </div>
+            <div class="offers-grid">
+                <!-- Offer 1 -->
+                <div class="offer-card">
+                    <div class="offer-badge" id="o-badge-new">جديد</div>
+                    <div class="offer-content">
+                        <h3 id="o1-title">باقة النظافة والجمال</h3>
+                        <p id="o1-desc">بديكير خاص + مناكير خاص + طلاء أظافر</p>
+                        <div class="offer-price">120 SAR</div>
+                        <a href="https://wa.me/966559394997" class="btn btn-outline" id="o-btn">احجزي العرض</a>
+                    </div>
+                </div>
+                <!-- Offer 2 -->
+                <div class="offer-card">
+                    <div class="offer-badge" id="o-badge-popular">الأكثر طلباً</div>
+                    <div class="offer-content">
+                        <h3 id="o2-title">باقة العيد والمناسبات</h3>
+                        <h4 id="o2-desc">تسريحة شعر + مكياج فاخر</h4>
+                        <div class="offer-price">299 SAR</div>
+                        <a href="https://wa.me/966559394997" class="btn btn-outline" id="o-btn2">احجزي العرض</a>
+                    </div>
+                </div>
+                <!-- Offer 3 -->
+                <div class="offer-card">
+                    <div class="offer-badge" id="o-badge-special">خاص</div>
+                    <div class="offer-content">
+                        <h3 id="o3-title">عروض صبغة الشعر</h3>
+                        <ul style="margin: 10px 0;">
+                            <li id="o3-l1">لون واحد للشعر القصير: 199 SAR</li>
+                            <li id="o3-l2">هايلايت / بالياج: 499 SAR</li>
+                        </ul>
+                        <a href="https://wa.me/966559394997" class="btn btn-outline" id="o-btn3">احجزي العرض</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="section-padding video-showcase" id="videos">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="videos-header" style="color: white;">معرض الفيديوهات</h2>
+            </div>
+            <div class="video-grid">
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=400&q=80" alt="Video">
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=400&q=80" alt="Video">
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=400&q=80" alt="Video">
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                </div>
+                <div class="video-item">
+                    <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=400&q=80" alt="Video">
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="why-header">لماذا تختارين مركز ماسا؟</h2>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h4 id="why1-t">خبيرات محترفات</h4>
+                    <p id="why1-p">فريق متخصص بخبرة سنوات</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-star"></i>
+                    <h4 id="why2-t">منتجات عالمية</h4>
+                    <p id="why2-p">نستخدم أفضل الماركات لجمالك</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-heart"></i>
+                    <h4 id="why3-t">عناية شخصية</h4>
+                    <p id="why3-p">نهتم بأدق تفاصيل جمالك</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-couch"></i>
+                    <h4 id="why4-t">بيئة مريحة</h4>
+                    <p id="why4-p">أجواء فاخرة للاسترخاء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="contact-header">تواصلـي معنا</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 id="c-loc-t">الموقع</h4>
+                            <p id="c-loc-p">الدمام، المملكة العربية السعودية</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 id="c-phone-t">الهاتف</h4>
+                            <p>0559394997</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4 id="c-wa-t">واتساب</h4>
+                            <p>+966559394997</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 id="c-time-t">أوقات العمل</h4>
+                            <p id="c-time-p">يومياً من 10 صباحاً إلى 10 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <div style="width: 100%; height: 300px; background: #eee; border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <p id="map-p">خريطة الموقع التفاعلية ستكون هنا</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">Masaa MH</div>
+                    <p id="footer-desc">مركز ماسا إم إتش هو وجهتك الأولى للجمال والأناقة في الدمام. نقدم لكِ خدمات متميزة بلمسات احترافية.</p>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/almass.mh_saloon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@mh.massa911"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/966559394997"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 id="f-links-t">روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home" id="f-l1">الرئيسية</a></li>
+                        <li><a href="#about" id="f-l2">من نحن</a></li>
+                        <li><a href="#services" id="f-l3">خدماتنا</a></li>
+                        <li><a href="#offers" id="f-l4">العروض الحالية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 id="f-serv-t">خدماتنا</h4>
+                    <ul>
+                        <li id="f-s1">تصفيف الشعر</li>
+                        <li id="f-s2">المكياج الاحترافي</li>
+                        <li id="f-s3">العناية بالأظافر</li>
+                        <li id="f-s4">باقات العرائس</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="copyright">© 2024 مركز ماسا إم إتش للتزيين النسائي. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                navLogo: 'مركز ماسا إم إتش',
+                home: 'الرئيسية',
+                about: 'من نحن',
+                services: 'خدماتنا',
+                offers: 'العروض',
+                videos: 'الفيديوهات',
+                contact: 'اتصلي بنا',
+                heroTitle: 'مركز ماسا إم إتش للتزيين النسائي',
+                heroSubtitle: 'تجربة الرفاهية والجمال التي تستحقينها في قلب الدمام',
+                btnWa: 'احجزي عبر واتساب',
+                btnCall: 'اتصلي الآن',
+                btnOffers: 'شاهدي العروض',
+                aboutTitle: 'عن مركز ماسا',
+                aboutP1: 'نحن في مركز ماسا إم إتش نقدم لكِ تجربة جمال فاخرة ومتكاملة. فريقنا من الخبيرات المحترفات ملتزم بتقديم أرقى الخدمات باستخدام أحدث التقنيات وأفضل المنتجات العالمية.',
+                aboutP2: 'سواء كنتِ تبحثين عن إطلالة يومية متألقة أو تجهيزات لعروس، نحن هنا لنجعل جمالكِ يشرق.',
+                aboutBtn: 'اكتشفي خدماتنا',
+                servicesHeader: 'خدماتنا المتميزة',
+                sHair: 'تصفيف الشعر',
+                sHairP: 'قص، تسريح، وأحدث صيحات الموضة',
+                sColor: 'صبغ الشعر',
+                sColorP: 'ألوان جذابة وتقنيات بالياج احترافية',
+                sMakeup: 'المكياج',
+                sMakeupP: 'مكياج سهرة وعرائس بأيدي خبيرات',
+                sNails: 'العناية بالأظافر',
+                sNailsP: 'مناكير، بديكير، وتزيين الأظافر',
+                sTreat: 'علاجات الشعر',
+                sTreatP: 'بروتين، كولاجين، وترميم الشعر',
+                sBridal: 'باقات العرائس',
+                sBridalP: 'عناية متكاملة لليلة العمر',
+                offersHeader: 'عروض حصرية',
+                oBadgeNew: 'جديد',
+                oBadgePopular: 'الأكثر طلباً',
+                oBadgeSpecial: 'خاص',
+                o1Title: 'باقة النظافة والجمال',
+                o1Desc: 'بديكير خاص + مناكير خاص + طلاء أظافر',
+                o2Title: 'باقة العيد والمناسبات',
+                o2Desc: 'تسريحة شعر + مكياج فاخر',
+                o3Title: 'عروض صبغة الشعر',
+                o3L1: 'لون واحد للشعر القصير: 199 SAR',
+                o3L2: 'هايلايت / بالياج: 499 SAR',
+                oBtn: 'احجزي العرض',
+                videosHeader: 'معرض الفيديوهات',
+                whyHeader: 'لماذا تختارين مركز ماسا؟',
+                why1T: 'خبيرات محترفات',
+                why1P: 'فريق متخصص بخبرة سنوات',
+                why2T: 'منتجات عالمية',
+                why2P: 'نستخدم أفضل الماركات لجمالك',
+                why3T: 'عناية شخصية',
+                why3P: 'نهتم بأدق تفاصيل جمالك',
+                why4T: 'بيئة مريحة',
+                why4P: 'أجواء فاخرة للاسترخاء',
+                contactHeader: 'تواصلـي معنا',
+                cLocT: 'الموقع',
+                cLocP: 'الدمام، المملكة العربية السعودية',
+                cPhoneT: 'الهاتف',
+                cWaT: 'واتساب',
+                cTimeT: 'أوقات العمل',
+                cTimeP: 'يومياً من 10 صباحاً إلى 10 مساءً',
+                mapP: 'خريطة الموقع التفاعلية ستكون هنا',
+                footerDesc: 'مركز ماسا إم إتش هو وجهتك الأولى للجمال والأناقة في الدمام. نقدم لكِ خدمات متميزة بلمسات احترافية.',
+                fLinksT: 'روابط سريعة',
+                fServT: 'خدماتنا',
+                copyright: '© 2024 مركز ماسا إم إتش للتزيين النسائي. جميع الحقوق محفوظة.'
+            },
+            en: {
+                dir: 'ltr',
+                navLogo: 'Masaa MH Salon',
+                home: 'Home',
+                about: 'About Us',
+                services: 'Services',
+                offers: 'Offers',
+                videos: 'Videos',
+                contact: 'Contact',
+                heroTitle: 'Masaa MH Beauty Salon',
+                heroSubtitle: 'The luxury and beauty experience you deserve in the heart of Dammam',
+                btnWa: 'Book on WhatsApp',
+                btnCall: 'Call Now',
+                btnOffers: 'View Offers',
+                aboutTitle: 'About Masaa Salon',
+                aboutP1: 'At Masaa MH Center, we offer you a luxurious and integrated beauty experience. Our team of professional experts is committed to providing the finest services using the latest techniques and best international products.',
+                aboutP2: 'Whether you are looking for a sparkling daily look or bridal preparations, we are here to make your beauty shine.',
+                aboutBtn: 'Discover Our Services',
+                servicesHeader: 'Our Premium Services',
+                sHair: 'Hair Styling',
+                sHairP: 'Cutting, styling, and the latest fashion trends',
+                sColor: 'Hair Coloring',
+                sColorP: 'Attractive colors and professional balayage techniques',
+                sMakeup: 'Makeup',
+                sMakeupP: 'Evening and bridal makeup by experts',
+                sNails: 'Nail Care',
+                sNailsP: 'Manicure, pedicure, and nail art',
+                sTreat: 'Hair Treatments',
+                sTreatP: 'Protein, collagen, and hair restoration',
+                sBridal: 'Bridal Packages',
+                sBridalP: 'Complete care for your special night',
+                offersHeader: 'Exclusive Offers',
+                oBadgeNew: 'New',
+                oBadgePopular: 'Popular',
+                oBadgeSpecial: 'Special',
+                o1Title: 'Cleanliness & Beauty Package',
+                o1Desc: 'Special Pedicure + Special Manicure + Nail Polish',
+                o2Title: 'Eid & Occasions Package',
+                o2Desc: 'Hair Styling + Luxury Makeup',
+                o3Title: 'Hair Color Offers',
+                o3L1: 'Single Color (Short Hair): 199 SAR',
+                o3L2: 'Highlights / Balayage: 499 SAR',
+                oBtn: 'Book Offer',
+                videosHeader: 'Video Gallery',
+                whyHeader: 'Why Choose Masaa Salon?',
+                why1T: 'Professional Experts',
+                why1P: 'Specialized team with years of experience',
+                why2T: 'Global Products',
+                why2P: 'We use the best brands for your beauty',
+                why3T: 'Personalized Care',
+                why3P: 'We care about the finest details of your beauty',
+                why4T: 'Comfortable Environment',
+                why4P: 'Luxurious atmosphere for relaxation',
+                contactHeader: 'Contact Us',
+                cLocT: 'Location',
+                cLocP: 'Dammam, Saudi Arabia',
+                cPhoneT: 'Phone',
+                cWaT: 'WhatsApp',
+                cTimeT: 'Working Hours',
+                cTimeP: 'Daily from 10 AM to 10 PM',
+                mapP: 'Interactive location map will be here',
+                footerDesc: 'Masaa MH Center is your first destination for beauty and elegance in Dammam. We offer you distinguished services with professional touches.',
+                fLinksT: 'Quick Links',
+                fServT: 'Our Services',
+                copyright: '© 2024 Masaa MH Beauty Salon. All rights reserved.'
+            }
+        };
+
+        function setLanguage(lang) {
+            const data = translations[lang];
+            document.documentElement.dir = data.dir;
+            document.documentElement.lang = lang;
+
+            // Update all elements
+            document.getElementById('nav-logo').textContent = data.navLogo;
+            document.getElementById('link-home').textContent = data.home;
+            document.getElementById('link-about').textContent = data.about;
+            document.getElementById('link-services').textContent = data.services;
+            document.getElementById('link-offers').textContent = data.offers;
+            document.getElementById('link-videos').textContent = data.videos;
+            document.getElementById('link-contact').textContent = data.contact;
+            
+            document.getElementById('hero-title').textContent = data.heroTitle;
+            document.getElementById('hero-subtitle').textContent = data.heroSubtitle;
+            document.getElementById('btn-wa').textContent = data.btnWa;
+            document.getElementById('btn-call').textContent = data.btnCall;
+            document.getElementById('btn-offers').textContent = data.btnOffers;
+
+            document.getElementById('about-title').textContent = data.aboutTitle;
+            document.getElementById('about-p1').textContent = data.aboutP1;
+            document.getElementById('about-p2').textContent = data.aboutP2;
+            document.getElementById('about-btn').textContent = data.aboutBtn;
+
+            document.getElementById('services-header').textContent = data.servicesHeader;
+            document.getElementById('s-hair').textContent = data.sHair;
+            document.getElementById('s-hair-p').textContent = data.sHairP;
+            document.getElementById('s-color').textContent = data.sColor;
+            document.getElementById('s-color-p').textContent = data.sColorP;
+            document.getElementById('s-makeup').textContent = data.sMakeup;
+            document.getElementById('s-makeup-p').textContent = data.sMakeupP;
+            document.getElementById('s-nails').textContent = data.sNails;
+            document.getElementById('s-nails-p').textContent = data.sNailsP;
+            document.getElementById('s-treat').textContent = data.sTreat;
+            document.getElementById('s-treat-p').textContent = data.sTreatP;
+            document.getElementById('s-bridal').textContent = data.sBridal;
+            document.getElementById('s-bridal-p').textContent = data.sBridalP;
+
+            document.getElementById('offers-header').textContent = data.offersHeader;
+            document.getElementById('o-badge-new').textContent = data.oBadgeNew;
+            document.getElementById('o-badge-popular').textContent = data.oBadgePopular;
+            document.getElementById('o-badge-special').textContent = data.oBadgeSpecial;
+            document.getElementById('o1-title').textContent = data.o1Title;
+            document.getElementById('o1-desc').textContent = data.o1Desc;
+            document.getElementById('o2-title').textContent = data.o2Title;
+            document.getElementById('o2-desc').textContent = data.o2Desc;
+            document.getElementById('o3-title').textContent = data.o3Title;
+            document.getElementById('o3-l1').textContent = data.o3L1;
+            document.getElementById('o3-l2').textContent = data.o3L2;
+            document.getElementById('o-btn').textContent = data.oBtn;
+            document.getElementById('o-btn2').textContent = data.oBtn;
+            document.getElementById('o-btn3').textContent = data.oBtn;
+
+            document.getElementById('videos-header').textContent = data.videosHeader;
+            document.getElementById('why-header').textContent = data.whyHeader;
+            document.getElementById('why1-t').textContent = data.why1T;
+            document.getElementById('why1-p').textContent = data.why1P;
+            document.getElementById('why2-t').textContent = data.why2T;
+            document.getElementById('why2-p').textContent = data.why2P;
+            document.getElementById('why3-t').textContent = data.why3T;
+            document.getElementById('why3-p').textContent = data.why3P;
+            document.getElementById('why4-t').textContent = data.why4T;
+            document.getElementById('why4-p').textContent = data.why4P;
+
+            document.getElementById('contact-header').textContent = data.contactHeader;
+            document.getElementById('c-loc-t').textContent = data.cLocT;
+            document.getElementById('c-loc-p').textContent = data.cLocP;
+            document.getElementById('c-phone-t').textContent = data.cPhoneT;
+            document.getElementById('c-wa-t').textContent = data.cWaT;
+            document.getElementById('c-time-t').textContent = data.cTimeT;
+            document.getElementById('c-time-p').textContent = data.cTimeP;
+            document.getElementById('map-p').textContent = data.mapP;
+
+            document.getElementById('footer-desc').textContent = data.footerDesc;
+            document.getElementById('f-links-t').textContent = data.fLinksT;
+            document.getElementById('f-serv-t').textContent = data.fServT;
+            document.getElementById('f-l1').textContent = data.home;
+            document.getElementById('f-l2').textContent = data.about;
+            document.getElementById('f-l3').textContent = data.services;
+            document.getElementById('f-l4').textContent = data.offers;
+            document.getElementById('f-s1').textContent = data.sHair;
+            document.getElementById('f-s2').textContent = data.sMakeup;
+            document.getElementById('f-s3').textContent = data.sNails;
+            document.getElementById('f-s4').textContent = data.sBridal;
+            document.getElementById('copyright').textContent = data.copyright;
+
+            // Toggle active class on buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
